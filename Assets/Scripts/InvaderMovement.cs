@@ -22,7 +22,7 @@ public class InvaderMovement : MonoBehaviour
 
     public float spentTime = 0f;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         SetMovement();
@@ -35,15 +35,15 @@ public class InvaderMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         StartCoroutine(Movement());
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, MapLimits.min.x, MapLimits.max.x),
             Mathf.Clamp(transform.position.y, MapLimits.min.y, MapLimits.max.y)
         );
-        if (transform.position.x == MapLimits.max.x || 
-            transform.position.x == MapLimits.min.x)
+        if (transform.position.x >= MapLimits.max.x || 
+            transform.position.x <= MapLimits.min.x)
         {
             ChangeMovement();
         }
@@ -54,7 +54,7 @@ public class InvaderMovement : MonoBehaviour
         StopCoroutine(Movement());
     }
 
-    bool ShouldChangeMovement()
+    public bool ShouldChangeMovement()
     {
         spentTime += Time.deltaTime;
         if (spentTime > MinChangeDirectionTime)
@@ -69,7 +69,7 @@ public class InvaderMovement : MonoBehaviour
         return false;
     }
     
-    IEnumerator Movement()
+    private IEnumerator Movement()
     {
         if (ShouldChangeMovement())
         {
@@ -78,14 +78,14 @@ public class InvaderMovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
-    void ChangeMovement()
+    public virtual void ChangeMovement()
     {
         spentTime = 0f;
         direction *= -1;
         SetMovement();
     }
 
-    void SetMovement()
+    public virtual void SetMovement()
     {
         if(!_rigidbody) return;
         

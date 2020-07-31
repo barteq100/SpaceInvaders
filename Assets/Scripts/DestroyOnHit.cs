@@ -12,9 +12,9 @@ public class DestroyOnHit : MonoBehaviour
 
     public ParticleSystem ParticlesToSpawnOnDeath;
 
-    private UnityAction OnDeath;
+    private UnityAction<GameObject> OnDeath;
 
-    public void RegisterOnDeath(UnityAction action)
+    public void RegisterOnDeath(UnityAction<GameObject> action)
     {
         OnDeath += action;
     }
@@ -27,8 +27,8 @@ public class DestroyOnHit : MonoBehaviour
 
         if (HitPoints <= 0)
         {
+            OnDeath?.Invoke(gameObject);
             Destroy(gameObject);
-            OnDeath?.Invoke();
             SpawnParticlesOnDeath();
         }
     }
@@ -37,6 +37,6 @@ public class DestroyOnHit : MonoBehaviour
     private void SpawnParticlesOnDeath()
     {
         var particle =  Instantiate(ParticlesToSpawnOnDeath, transform.position, Quaternion.identity);
-        Destroy(particle, particle.main.duration);
+        Destroy(particle.gameObject, particle.main.duration);
     }
 }

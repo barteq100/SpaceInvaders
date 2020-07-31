@@ -46,7 +46,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             var power = other.GetComponent<PowerBase>().GetPower();
             Power += power;
-            Power = Mathf.Clamp(Power, 0, maxPower);
+            Power = Mathf.Clamp(Power, 1, maxPower);
             var powerParticle = Instantiate(GetParticlesByPower(power), transform);
             Destroy(powerParticle.gameObject, powerParticle.main.duration);
             Destroy(other.gameObject);

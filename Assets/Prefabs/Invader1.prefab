@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86fe37079a8747f68f7550bb36b12dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerUpProbability: 0.1
+  PowerUpProbability: 1
   PowerUpPrefab: {fileID: 6157035047419622490, guid: 9cfb86cf3c7f5474083116fd84beab6a,
     type: 3}
   PowerDownPrefab: {fileID: 4928713463886840176, guid: 47730edd910e644f3a1d7c05b4b1f1d9,
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960489278832898347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42fbe15c9cb045b098cd044faa340be, type: 3}
   m_Name: 
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinTimeToShoot: 1
-  MaxTimeToShoot: 3
+  MaxTimeToShoot: 4
   Cannons:
   - {fileID: 1981412734933696208}
   ShootPower: -50

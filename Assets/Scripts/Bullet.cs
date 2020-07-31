@@ -15,10 +15,12 @@ using UnityEngine;
         private Renderer _renderer;
         private bool ShouldDestroy = false;
         private bool toDestroy = false;
-        
+
+        private Collider _collider;
         public void Awake()
         {
             _renderer = GetComponentInChildren<Renderer>();
+            _collider = GetComponent<Collider>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -77,6 +79,7 @@ using UnityEngine;
             toDestroy = true;
             StopCoroutine(CheckFlight());
             _renderer.enabled = false;
+            _collider.enabled = false;
            var particle = SpawnParticle();
            Destroy(this.gameObject, particle.main.duration + 0.5f);
         }

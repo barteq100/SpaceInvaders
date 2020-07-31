@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3055170006177148985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527295190931873536}
+  - component: {fileID: 6003112456689808425}
+  - component: {fileID: 1935439241}
+  m_Layer: 8
+  m_Name: Swarm
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527295190931873536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055170006177148985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6003112456689808425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055170006177148985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dc763d5944c4e00ac6d722b82fe393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemiesInRow: 4
+  RowsCount: 4
+  InvadersPrefabs:
+  - {fileID: 3960489278832898347, guid: e0d8347f41b0c4818a7056e796b0bf6b, type: 3}
+  - {fileID: 8115531092002384001, guid: 1f8ce29f37041416a85190156df417b3, type: 3}
+--- !u!114 &1935439241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055170006177148985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105e681f28c447a2ac36663ee2a1ede4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapLimits:
+    min: {x: -80, y: 20}
+    max: {x: 78, y: 70}
+  DownMovementSpeed: 2
+  AngularMovmentSpeed: 12
+  MinChangeDirectionTime: 3
+  MaxChangeDirectionTime: 5
+  ChangeProbability: 0.2
+  direction: 1
+  spentTime: 0

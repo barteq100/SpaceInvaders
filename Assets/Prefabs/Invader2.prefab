@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8115531092002384001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42fbe15c9cb045b098cd044faa340be, type: 3}
   m_Name: 
@@ -276,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08d4bb099a3841ccb7b08d2b3fbd1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinTimeToShoot: 0.5
-  MaxTimeToShoot: 1.3
+  MinTimeToShoot: 1
+  MaxTimeToShoot: 4
   Cannons:
   - {fileID: 182311402756746360}
   - {fileID: 6855793407735211450}

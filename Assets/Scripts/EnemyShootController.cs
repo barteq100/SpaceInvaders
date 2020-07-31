@@ -28,8 +28,10 @@ public class EnemyShootController : MonoBehaviour
     {
         while (true)
         {
+            var waitTime = Random.Range(MinTimeToShoot, MaxTimeToShoot);
+            Debug.Log($"Waiting To shoot: {waitTime}");
+            yield return new WaitForSeconds(waitTime);
             CannonsController.Shoot(Cannons, ShootPower);
-            yield return new WaitForSeconds(Random.Range(MinTimeToShoot, MaxTimeToShoot));
         }
     }
 }

@@ -44,17 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesToSpawn:
-  - prefab: {fileID: 3960489278832898347, guid: e0d8347f41b0c4818a7056e796b0bf6b,
-      type: 3}
-    tier: 1
-  - prefab: {fileID: 8115531092002384001, guid: 1f8ce29f37041416a85190156df417b3,
-      type: 3}
-    tier: 2
-  SpawnConfigs:
-  - tier: 1
-    amountToSpawn: 3
-  - tier: 2
-    amountToSpawn: 2
+  - {fileID: 6003112456689808425, guid: 1292f978dca634783964ae2cc60287e3, type: 3}
   SpawnerLimits:
     min: {x: -50, y: -25}
     max: {x: 50, y: 25}
+  SpawnedSwarm: {fileID: 0}
