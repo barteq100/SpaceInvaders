@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,6 +21,7 @@ namespace DefaultNamespace
         // Update is called once per frame
         private void Update()
         {
+            StartCoroutine(CheckForDirectionChange());
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, MapLimits.min.x, MapLimits.max.x),
                 Mathf.Clamp(transform.position.y, MapLimits.min.y, MapLimits.max.y)
@@ -32,15 +34,23 @@ namespace DefaultNamespace
 
             Movement();
         }
+        
+        private void OnDestroy()
+        {
+            StopCoroutine(CheckForDirectionChange());
+        }
 
-
-        private void Movement()
+        private IEnumerator CheckForDirectionChange()
         {
             if (ShouldChangeMovement())
             {
                 ChangeMovement();
             }
 
+            yield return new WaitForSeconds(0.1f);
+        } 
+        private void Movement()
+        {
             Move();
         }
 

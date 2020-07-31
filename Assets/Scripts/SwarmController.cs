@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -10,6 +11,7 @@ public class SwarmController : MonoBehaviour
     public int EnemiesInRow;
     public int RowsCount;
     public UnityAction OnAllInvadersDeath;
+    public UnityAction<Invader> OnInvaderDeath;
     public GameObject[] InvadersPrefabs;
 
     private List<GameObject> _spawnedEnemies;
@@ -31,17 +33,19 @@ public class SwarmController : MonoBehaviour
                 var invader = Instantiate(prefab, position, prefab.transform.rotation);
                 invader.transform.parent = transform;
                 _spawnedEnemies.Add(invader);
-                invader.GetComponent<DestroyOnHit>().RegisterOnDeath(OnInvaderDeath);
+                invader.GetComponent<DestroyOnHit>().RegisterOnDeath(InvaderDied);
             }
         }
     }
 
-    private void OnInvaderDeath(GameObject invader)
+    private void InvaderDied(GameObject invader)
     {
         _spawnedEnemies.Remove(invader);
+        OnInvaderDeath?.Invoke(invader.GetComponent<Invader>());
         if (_spawnedEnemies.Count == 0)
         {
             OnAllInvadersDeath?.Invoke();
         }
+        
     }
 }

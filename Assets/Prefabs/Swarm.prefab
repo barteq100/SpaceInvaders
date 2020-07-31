@@ -62,12 +62,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapLimits:
-    min: {x: -80, y: 20}
-    max: {x: 78, y: 70}
-  DownMovementSpeed: 2
-  AngularMovmentSpeed: 12
-  MinChangeDirectionTime: 3
-  MaxChangeDirectionTime: 5
+    min: {x: -60, y: 20}
+    max: {x: 60, y: 90}
+  DownMovementSpeed: 1.8
+  AngularMovmentSpeed: 16
+  MinChangeDirectionTime: 5
+  MaxChangeDirectionTime: 11
   ChangeProbability: 0.2
   direction: 1
   spentTime: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class EnemySpawnPoint : MonoBehaviour
@@ -12,6 +13,7 @@ public class EnemySpawnPoint : MonoBehaviour
     public List<SwarmController> EnemiesToSpawn;
     public MapLimits SpawnerLimits;
     public SwarmController SpawnedSwarm;
+    public UnityAction<Invader> OnInvaderDeath;
     void Start()
     {
         Spawn();
@@ -23,6 +25,7 @@ public class EnemySpawnPoint : MonoBehaviour
         var spawned =GameObject.Instantiate(EnemiesToSpawn[swarmPrefab], getSpawnPosition(), Quaternion.identity);
         SpawnedSwarm = spawned;
         spawned.OnAllInvadersDeath += OnAllInvadersDeath;
+        spawned.OnInvaderDeath += OnInvaderDied;
     }
 
     Vector3 getSpawnPosition()
@@ -37,5 +40,10 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         Destroy(SpawnedSwarm.gameObject);
         Spawn();
+    }
+
+    void OnInvaderDied(Invader invader)
+    {
+        OnInvaderDeath?.Invoke(invader);
     }
 }

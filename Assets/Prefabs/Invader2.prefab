@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 4290216690535700849}
   - component: {fileID: 939701214214125746}
   - component: {fileID: 9191313006250575299}
+  - component: {fileID: -3978027114367359429}
   m_Layer: 8
   m_Name: Invader2
   m_TagString: Untagged
@@ -285,3 +286,16 @@ MonoBehaviour:
   CannonsController:
     BulletPrefab: {fileID: 5390982634762627652, guid: 9cae6550c9b114f6a9869a4b37b68059,
       type: 3}
+--- !u!114 &-3978027114367359429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115531092002384001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3c45e1e7c254391a5de25fd5c586d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InvaderType: 1
